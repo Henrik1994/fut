@@ -1,0 +1,102 @@
+.row.content {
+    height: 1500px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    background-color: #222d32;
+    height: 100%;
+}
+.navbar {
+    margin-bottom: 0;
+    background-color: #3c8dbc ;
+    border: none;
+}
+.logo-lg{
+    color: white;
+}
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+
+    .row.content {
+        height: auto;
+    }
+}
+.user-panel{
+    margin-left: -13%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+.img-circle{
+    width: 100%;
+    max-width: 45px;
+}
+.pull-left{
+    padding: 5px 5px 5px 15px;
+}
+.sidebar-form{
+    border-radius: 3px;
+    border: 1px solid #374850;
+    overflow: hidden;
+    text-overflow: clip;
+    overflow: hidden;
+}
+.input-group{
+    display: table;
+    border-collapse: separate;
+    overflow: hidden;
+}
+.search{
+    font: 15px arial;
+    color: white;
+    box-shadow: none;
+    background-color: #374850;
+    border: none;
+    height: 35px;
+    overflow: hidden;
+}
+.input-group-btn{
+    width: 1%;
+    vertical-align: middle;
+    /*position: relative;*/
+    /*font-size: 0;*/
+    /*white-space: nowrap;*/
+    /*display: table-cell;*/
+    /*width: 1%;*/
+    /*vertical-align: middle;*/
+    /*overflow: hidden;*/
+}
+#search-btn{
+    z-index: 2;
+    padding-bottom: 7px;
+    padding-right: 8px;
+    color: #999;
+    background-color:#374850 ;
+    overflow: hidden;
+
+}
+.sidebar-menu{
+    list-style: none;
+    margin: 0;
+    padding: 12% 0;
+}
+.sidebar-menu > li >a:hover{
+    background-color: #1e282c;
+    color: white;
+    text-decoration: none;
+    border-left-color:#3c8dbc;
+}
+
+.link{
+    border-left: 3px solid transparent;
+    color: #b8c7ce;
+    padding: 12px 5px 12px 15px;
+    display: block;
+    text-decoration: none;
+}
