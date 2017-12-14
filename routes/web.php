@@ -66,13 +66,10 @@ Route::post('/slider_edit','Teams\TeamSliderController@slider_edit');
 Route::get('/slider_del/{id}','Teams\TeamSliderController@slider_del');
 
 
-//Route::post('/categories_set','Teams\Team_settingsController@categories_set');
-//Route::post('/categories_update','Teams\Team_settingsController@categories_update');
-//Route::get('/category_del/{id}','Teams\Team_settingsController@category_del');
-
-
-
-
+Route::get('/team_news/{id}','Teams\TeamNewsController@index');
+Route::post('/team_news_set','Teams\TeamNewsController@team_news_set');
+Route::post('/team_news_edit','Teams\TeamNewsController@team_news_edit');
+Route::get('/team_news_del/{id}','Teams\TeamNewsController@slider_del');
 
 
 Route::get('/','IndexController@index');

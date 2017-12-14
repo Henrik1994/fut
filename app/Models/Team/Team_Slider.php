@@ -11,9 +11,4 @@ class Team_Slider extends Model
         'team_id','image'
     ];
 
-
-    public function Team()
-    {
-        return $this->belongsTo('App\Models\Team\Team');
-    }
 }
