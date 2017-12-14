@@ -10,4 +10,9 @@ class Team extends Model
     protected $fillable = [
       'team','image','link'
     ];
+
+    public function Team_set()
+    {
+        return $this->hasMany('App\Models\Team\Team_Slider');
+    }
 }

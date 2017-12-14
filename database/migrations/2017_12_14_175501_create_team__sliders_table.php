@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeamSettingsTable extends Migration
+class CreateTeamSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTeamSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('team__settings', function (Blueprint $table) {
+        Schema::create('team__sliders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('team_id');
-            $table->string('categories');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateTeamSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team__settings');
+        Schema::dropIfExists('team__sliders');
     }
 }

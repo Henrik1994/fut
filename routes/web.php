@@ -59,8 +59,16 @@ Route::post('/team_set', 'Teams\TeamsController@team_set');
 Route::post('/team_edit','Teams\TeamsController@team_edit');
 Route::get('/delete_team/{id}','Teams\TeamsController@delete_team');
 
+//team slider
+Route::get('/team_slider/{id}','Teams\TeamSliderController@index');
+Route::post('/slider_set','Teams\TeamSliderController@slider_set');
+Route::post('/slider_edit','Teams\TeamSliderController@slider_edit');
+Route::get('/slider_del/{id}','Teams\TeamSliderController@slider_del');
 
-Route::get('/team_set{id}','Teams\Team_settingsController@index');
+
+//Route::post('/categories_set','Teams\Team_settingsController@categories_set');
+//Route::post('/categories_update','Teams\Team_settingsController@categories_update');
+//Route::get('/category_del/{id}','Teams\Team_settingsController@category_del');
 
 
 
@@ -90,9 +98,3 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Auth::routes();
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

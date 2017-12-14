@@ -49,10 +49,6 @@
                                 <td class="canSelect">{{ $team->team }}</td>
                                 <td align="center">
                                     <div class="btn-group no-print">
-                                        <a href='{{ url("team_set",$team->id) }}'>
-                                            <button type="button" class="btn btn-primary btn-sm"><span
-                                                        class="glyphicon glyphicon-eye-open"></span></button>
-                                        </a>
                                         <a href="#"><button type="button" class="btn btn-success btn-sm team_edit" data-toggle="modal"
                                                             data-target="#team_edit" data-id="{{ $team->id }}"  data-team="{{ $team->team }}" data-img="{{ $team->img }}" data-link="{{ $team->link }}"><span
                                                         class="glyphicon glyphicon glyphicon-edit"></span></button>
