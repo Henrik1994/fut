@@ -7,15 +7,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <h4 class="text-center">News Page</h4>
+                    <h4 class="text-center">{{ $team_ids->team }} News Page</h4>
                     <div class="col-sm-12">
                         <button class="center btn-primary btn-group-justified" id="add_news"><span class="glyphicon glyphicon-plus"></span> Add
                             Posts
                         </button>
                         <hr>
                         <div class="demo" id="news_demo" style="display: none!important;"><br>
-                            <form action="{{ url('news_set') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ url('/team_news_set') }}" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="team_id" value="{{ $team_ids->id }}">
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <textarea class="form-control" name="title" id="title"  required></textarea>
@@ -46,8 +47,8 @@
                     <div class="col-sm-12">
                         <h3 style="text-align: center">Posts</h3><br>`
                         <div class="row">
-                            @if(isset($news))
-                                @foreach($news as $new)
+                            @if(isset($team_ids))
+                                @foreach($team_ids->Team_news as $new)
                                     <div class="col-sm-4" style="padding-top: 10px">
                                         @if($new->video != "")
                                             <iframe class="embed-responsive-item" src="{{ $new->video }}"  style="width:100%; height: 200px"></iframe>
@@ -56,12 +57,10 @@
                                                  style="width:100%; height: 200px" alt="Image">
                                         @endif
                                         <p style="text-align:center ">{{ (strlen($new->title) < 40)?$new->title:substr($new->title,0,40)."..." }}</p>
-                                        <a href="{{ url('/delete_news', $new->id) }}"><button type="button" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span></button></a>
-                                        <button type="button" class="btn btn-success pull-right news_update" data-toggle="modal" data-target="#news_update" data-id="{{ $new->id }}" data-title="{{ $new->title }}" data-desc="{{ $new->description }}" data-img ="{{  asset("image/".$new->image)  }}"><span class="glyphicon glyphicon-edit"></span></button>
+                                        <a href="{{ url('/team_news_del', $new->id) }}"><button type="button" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span></button></a>
+                                        <button type="button" class="btn btn-success pull-right news_update" data-toggle="modal" data-target="#news_update" data-id="{{ $new->id }}"  data-teamid="{{ $new->team_id }}" data-title="{{ $new->title }}" data-desc="{{ $new->description }}" data-img ="{{  asset("image/".$new->image)  }}"><span class="glyphicon glyphicon-edit"></span></button>
                                         <button type="button" class="btn btn-info pull-right interesting_show" data-toggle="modal" data-target="#interesting_show" data-id="{{ $new->id }}" data-title="{{ $new->title }}" data-desc="{{ $new->description }}" data-img ="{{  asset("image/".$new->image)  }}"><span class="glyphicon glyphicon-eye-open"></span></button>
-                                        {{--<a href="{{ url('/add_interesting_to_slider', $new->id) }}"><button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon glyphicon-picture"></span></button></a>--}}
-                                        {{--<a href="{{ url('/add_interesting_to_read_more', $new->id) }}"><button type="button" class="btn btn-warning pull-right"><span class="glyphicon glyphicon glyphicon-pushpin"></span></button></a>--}}
-                                    </div>
+                                       </div>
                                 @endforeach
                             @endif
                         </div>
@@ -80,9 +79,10 @@
                     </div>
                     <div class="modal-body">
                         <img src="" style="height: 200px; width : 300px;margin: 0 30%">
-                        <form action="{{ url('/update_news') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('/team_news_edit') }}" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="news_id" id="news_id_hid" value="" />
+                            <input type="hidden" name="team_id" id="teamid" value="" />
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <textarea class="form-control" name="title" id="news_title"  required></textarea>
@@ -155,9 +155,11 @@
             $('.news_update').on('click', function () {
                 var $news_id =  "ID " +  $(this).data('id') ;
                 var $news_id_hid =   $(this).data('id') ;
+                var $news_teamid =   $(this).data('teamid') ;
                 var $news_title = $(this).data('title');
                 var $news_desc = $(this).data('desc');
                 $('#news_id').text($news_id);
+                $('#teamid').val($news_teamid);
                 $('#news_title').text($news_title);
                 $('#news_desc').text($news_desc);
                 $('#news_id_hid').val($news_id_hid);

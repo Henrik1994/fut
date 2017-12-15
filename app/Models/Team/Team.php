@@ -15,4 +15,17 @@ class Team extends Model
     {
         return $this->hasMany('App\Models\Team\Team_Slider');
     }
+    public function Team_news()
+    {
+        return $this->hasMany('App\Models\Team\TeamNews');
+    }
+    public function Team_next()
+    {
+        return $this->hasMany('App\Models\Team\TeamNext');
+    }
+    public function Team_results()
+    {
+        return $this->hasMany('App\Models\Team\TeamResults');
+    }
+
 }

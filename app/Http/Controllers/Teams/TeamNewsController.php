@@ -10,15 +10,17 @@ use Symfony\Component\Console\Input\Input;
 
 class TeamNewsController extends Controller
 {
-    public function index(){
+    public function index($id)
+    {
         $news = TeamNews::OrderBy('id','desc')->get();
         $teams = Team::all();
-        return view('admin.Team.team_news',compact('news','teams'));
+        $team_ids = Team::find($id);
+
+        return view('admin.Team.team_news',compact('news','teams','team_ids'));
     }
 
     public function team_news_set( Request $request)
     {
-
         $destinationPath = 'image';
         $file = $request->file('file');
         $file->move($destinationPath, $file->getClientOriginalName());
@@ -32,6 +34,7 @@ class TeamNewsController extends Controller
             $video = null;
         }
         $alldata = [
+            'team_id'=>$request['team_id'],
             'title'=>$request['title'],
             'description'=>$request['description'],
             'image'=> $filename,
@@ -44,7 +47,6 @@ class TeamNewsController extends Controller
     }
     public function  team_news_edit(Request $request)
     {
-
         $destinationPath = 'image';
         $file = $request->file('file');
         $file->move($destinationPath, $file->getClientOriginalName());
@@ -58,15 +60,13 @@ class TeamNewsController extends Controller
             $video = null;
         }
 
-        $update = Input::all();
-        $news_update = TeamNews::find($update['news_id']);
-        $news_update->title =$update['title'];
-        $news_update->description =$update['description'];
+        $news_update = TeamNews::find($request['news_id']);
+        $news_update->team_id =$request['team_id'];
+        $news_update->title =$request['title'];
+        $news_update->description =$request['description'];
         $news_update->image = $filename;
         $news_update->video = $video;
         $news_update->save();
-
-
 
         return redirect()->back();
     }

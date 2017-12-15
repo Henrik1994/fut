@@ -69,8 +69,18 @@ Route::get('/slider_del/{id}','Teams\TeamSliderController@slider_del');
 Route::get('/team_news/{id}','Teams\TeamNewsController@index');
 Route::post('/team_news_set','Teams\TeamNewsController@team_news_set');
 Route::post('/team_news_edit','Teams\TeamNewsController@team_news_edit');
-Route::get('/team_news_del/{id}','Teams\TeamNewsController@slider_del');
+Route::get('/team_news_del/{id}','Teams\TeamNewsController@team_news_del');
 
+Route::get('/team_next/{id}','Teams\TeamNextController@index');
+Route::post('/team_next_set','Teams\TeamNextController@team_next_set');
+Route::post('/team_next_edit','Teams\TeamNextController@team_next_edit');
+Route::get('/team_next_del/{id}','Teams\TeamNextController@team_next_del');
+
+
+Route::get('/team_results/{id}','Teams\TeamResultsController@index');
+Route::post('/team_results_set','Teams\TeamResultsController@team_results_set');
+Route::post('/team_results_edit','Teams\TeamResultsController@team_results_edit');
+Route::get('/team_results_del/{id}','Teams\TeamResultsController@team_results_del');
 
 Route::get('/','IndexController@index');
 
@@ -90,8 +100,5 @@ Route::get('/contact', function () {
 });
 Route::get('/uefa', function () {
     return view('uefa');
-});
-Route::get('/contact', function () {
-    return view('contact');
 });
 Auth::routes();

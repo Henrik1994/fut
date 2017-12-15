@@ -10,4 +10,5 @@ class TeamNews extends Model
     protected $fillable = [
         'team_id','title','description','image','video','created_at'
     ];
+
 }
