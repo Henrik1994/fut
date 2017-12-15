@@ -87,6 +87,11 @@ Route::post('/team_pleyers_set','Teams\TeamPlayerController@team_pleyers_set');
 Route::post('/team_pleyers_edit','Teams\TeamPlayerController@team_pleyers_edit');
 Route::get('/team_pleyers_del/{id}','Teams\TeamPlayerController@team_pleyers_del');
 
+Route::get('/team_important/{id}','Teams\TeamImportantController@index');
+Route::post('/team_important_set','Teams\TeamImportantController@team_important_set');
+Route::post('/team_important_edit','Teams\TeamImportantController@team_important_edit');
+Route::get('/team_important_del/{id}','Teams\TeamImportantController@team_important_del');
+
 Route::get('/','IndexController@index');
 
 

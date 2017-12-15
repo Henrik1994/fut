@@ -31,4 +31,8 @@ class Team extends Model
     {
         return $this->hasMany('App\Models\Team\TeamPlayers');
     }
+    public function Team_important()
+    {
+        return $this->hasMany('App\Models\Team\TeamImportant');
+    }
 }

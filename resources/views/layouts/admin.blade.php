@@ -214,7 +214,7 @@
                         <li><a href="{{ url('/team_next',$team->id) }}"><i class="fa fa-circle-o"></i>Next Matches</a></li>
                         <li><a href="{{ url('/team_results',$team->id) }}"><i class="fa fa-circle-o"></i>Results</a></li>
                         <li><a href="{{ url('/team_pleyers',$team->id) }}"><i class="fa fa-circle-o"></i>Our Players</a></li>
-                        <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Important</a></li>
+                        <li><a href="{{ url('/team_important',$team->id) }}"><i class="fa fa-circle-o"></i> Important</a></li>
                     </ul>
                 </li>
                     @endforeach
