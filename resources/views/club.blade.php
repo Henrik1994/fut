@@ -1,650 +1,411 @@
 @extends('layouts.main')
 @section('title')
-	Clubs
-	@endsection
+    Clubs
+@endsection
+@section('left_teams')
+    <div class="left-side sticky-left-side" style='background-color: #006D96;'>
+        <!--logo and iconic logo end-->
+        <div class="left-side-inner">
+            <div class="scrollbar scrollbar1">
+                <!--sidebar nav start-->
+                <ul class="nav nav-pills nav-stacked custom-nav" style="margin-top: 0 !important; ">
+                    <li style="height: 58px!important;" class="active"><a href="{{ url('/') }}"><img
+                                    src="{{ asset('icons/4.png') }}" style="width: 41px;height: 47px" alt="Home"/></a>
+                    </li>
+                    @foreach($teams as $team)
+                        <li><a href="{{ url('/club', $team->id) }}"><img
+                                        src="{{ ($team->link != '')?$team->link:asset('image/'.$team->image) }}"
+                                        style="width: 32px;height: 32px"/><span
+                                        style="height: 46px;top: 0">{{ $team->team }}</span></a></li>
+                    @endforeach
+                </ul>
+                <!--sidebar nav end-->
+                <div class="text-center">
+                    <a href="#"><img src="{{ asset('images/17.png') }}"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
-<div id="page-wrapper">
-	<div class="club">
-		<div class="club-heading">
-			<h2 class="text-center">Barcelona</h2>
-		</div>
-		<div class="club-grids">
-			<div class="col-md-8 club-left">
-				<div class="slider-grids">
-					<div class="col-md-8 slider">
-						<script src="js/responsiveslides.min.js"></script>
-						<script>
-                            // You can also use "$(window).load(function() {"
-                            $(function () {
-                                // Slideshow 4
-                                $("#slider3").responsiveSlides({
-                                    auto: true,
-                                    pager: true,
-                                    nav: false,
-                                    speed: 500,
-                                    namespace: "callbacks",
-                                    before: function () {
-                                        $('.events').append("<li>before event fired.</li>");
-                                    },
-                                    after: function () {
-                                        $('.events').append("<li>after event fired.</li>");
-                                    }
-                                });
-                            });
-						</script>
-						<div  id="top" class="callbacks_container-wrap">
-							<ul class="rslides" id="slider3">
-								<li>
-									<div class="slider1"></div>
-								</li>
-								<li>
-									<div class="slider1 slider2"></div>
-								</li>
-								<li>
-									<div class="slider1 slider3"></div>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-4 slider-right">
-						<div class="slider-right-img">
-							<img src="images/f4.jpg" alt="" />
-							<div class="slider-right-info">
-								<a href="single.html">Fusce ornare congue ligula vel</a>
-								<p>Nam id sollicitudin felis. Nulla non bibendum arcu. Vestibulum non venenatis Vestibulum non venenatis </p>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="three-grids">
-					<div class="three-grid">
-						<div class="three-grid-info">
-							<div class="three-grid-img">
-								<a href="single.html"><img src="images/g3.jpg" alt="" /></a>
-							</div>
-							<div class="three-grid-text">
-								<div class="three-grid-text-heading">
-									<a class="text" href="single.html">Fusce ornare congue ligula vel placerat</a>
-								</div>
-								<div class="t-grid author-grid">
-									<ul>
-										<li><a href="#"><i class="fa fa-clock-o"></i> 1h</a></li>
-										<li><a href="#"><i class="fa fa-user"></i> Vestibulum</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="three-grid">
-						<div class="three-grid-info">
-							<div class="three-grid-img">
-								<a href="single.html"><img src="images/g4.jpg" alt="" /></a>
-							</div>
-							<div class="three-grid-text">
-								<div class="three-grid-text-heading">
-									<a class="text" href="single.html">Fusce ornare congue ligula vel placerat</a>
-								</div>
-								<div class="t-grid author-grid">
-									<ul>
-										<li><a href="#"><i class="fa fa-clock-o"></i> 2h</a></li>
-										<li><a href="#"><i class="fa fa-user"></i> Cras pretium </a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="three-grid">
-						<div class="three-grid-info">
-							<div class="three-grid-img">
-								<a href="single.html"><img src="images/g5.jpg" alt="" /></a>
-							</div>
-							<div class="three-grid-text">
-								<div class="three-grid-text-heading">
-									<a class="text" href="single.html">Fusce ornare congue ligula vel placerat</a>
-								</div>
-								<div class="t-grid author-grid">
-									<ul>
-										<li><a href="#"><i class="fa fa-clock-o"></i> 4h</a></li>
-										<li><a href="#"><i class="fa fa-user"></i> Phasellus</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="club-players">
-					<div class="col-md-6 club-players-left-grid">
-						<div class="club-players-left">
-							<div class="club-players-left-heading">
-								<h3>Our Players</h3>
-							</div>
-							<table>
-								<thead>
-								<tr>
-									<th class="p-name">
-										Player
-									</th>
-									<th class="p-name p-nation">
-										Name
-									</th>
-									<th class="p-name p-nation">
-										Nationality
-									</th>
-									<th class="p-name p-position">
-										Position
-									</th>
-								</tr>
-								<thead>
-								<tbody>
-								<tr class="p-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Messi</td>
-									<td class="player-name p-country">Argentina</td>
-									<td class="player-name p-place">Forward</td>
-								</tr>
-								<tr class="pg-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Ortolá</td>
-									<td class="player-name p-country">Spain</td>
-									<td class="player-name p-place">Goalkeeper</td>
-								</tr>
-								<tr class="p-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">C.Bravo</td>
-									<td class="player-name p-country">Chile</td>
-									<td class="player-name p-place">Goalkeeper</td>
-								</tr>
-								<tr class="pg-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">M.ter Stegen</td>
-									<td class="player-name p-country">Germany</td>
-									<td class="player-name p-place">Goalkeeper</td>
-								</tr>
-								<tr class="p-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Bartra</td>
-									<td class="player-name p-country">Spain</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="pg-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Jordi Alba</td>
-									<td class="player-name p-country">Spain</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="p-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Douglas</td>
-									<td class="player-name p-country">Brazil</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="pg-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Piqué</td>
-									<td class="player-name p-country">Spain</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="p-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">T. Vermaelen</td>
-									<td class="player-name p-country">Belgium</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="pg-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Dani Alves</td>
-									<td class="player-name p-country">Brazil</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="p-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">J.Mathieu</td>
-									<td class="player-name p-country">France</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								<tr class="pg-color">
-									<td class="p-user"><i class="fa fa-user"></i></td>
-									<td class="player-name">Correia</td>
-									<td class="player-name p-country">Brazil</td>
-									<td class="player-name p-place">Defender</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="col-md-6 club-players-right-grid">
-						<div class="most-grid">
-							<div class="most-grid-heading">
-								<h3>Popular Now</h3>
-							</div>
-							<div class="popular-grids">
-								<div class="popular-grid">
-									<div class="col-md-3 popular-grid-img">
-										<img src="images/club1.jpg" alt="" />
-									</div>
-									<div class="col-md-9 popular-grid-right">
-										<a href="single.html">Etiam velit lacus, blandit ac nulla eget, tincidunt fermentum elit. Morbi feugiat erat felis</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-							<div class="popular-grids">
-								<div class="popular-grid">
-									<div class="col-md-3 popular-grid-img">
-										<img src="images/club2.jpg" alt="" />
-									</div>
-									<div class="col-md-9 popular-grid-right">
-										<a href="single.html">Etiam velit lacus, blandit ac nulla eget, tincidunt fermentum elit. Morbi feugiat erat felis</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-							<div class="popular-grids">
-								<div class="popular-grid">
-									<div class="col-md-3 popular-grid-img">
-										<img src="images/club3.jpg" alt="" />
-									</div>
-									<div class="col-md-9 popular-grid-right">
-										<a href="single.html">Etiam velit lacus, blandit ac nulla eget, tincidunt fermentum elit. Morbi feugiat erat felis</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-							<div class="popular-grids">
-								<div class="popular-grid">
-									<div class="col-md-3 popular-grid-img">
-										<img src="images/club4.jpg" alt="" />
-									</div>
-									<div class="col-md-9 popular-grid-right">
-										<a href="single.html">Etiam velit lacus, blandit ac nulla eget, tincidunt fermentum elit. Morbi feugiat erat felis</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-							<div class="popular-grids">
-								<div class="popular-grid">
-									<div class="col-md-3 popular-grid-img">
-										<img src="images/club5.jpg" alt="" />
-									</div>
-									<div class="col-md-9 popular-grid-right">
-										<a href="single.html">Etiam velit lacus, blandit ac nulla eget, tincidunt fermentum elit. Morbi feugiat erat felis</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-							<div class="popular-grids">
-								<div class="popular-grid">
-									<div class="col-md-3 popular-grid-img">
-										<img src="images/club1.jpg" alt="" />
-									</div>
-									<div class="col-md-9 popular-grid-right">
-										<a href="single.html">Etiam velit lacus, blandit ac nulla eget, tincidunt fermentum elit. Morbi feugiat erat felis</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-4 club-right">
-				<div class="next-match">
-					<h3>Next Matches</h3>
-					<div class="match-table">
-						<table>
-							<tr class="match-b-color">
-								<td class="date">
-									03/04/2014
-								</td>
-								<td class="time">
-									17:30
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									ATM
-								</td>
-							</tr>
-							<tr class="match-b-color">
-								<td class="date">
-									04/04/2014
-								</td>
-								<td class="time">
-									18:25
-								</td>
-								<td class="country-club">
-									RMA
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-							</tr>
-							<tr class="match-b-color">
-								<td class="date">
-									06/04/2014
-								</td>
-								<td class="time">
-									19:30
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									ATM
-								</td>
-							</tr>
-							<tr class="match-b-color">
-								<td class="date">
-									07/04/2014
-								</td>
-								<td class="time">
-									20:25
-								</td>
-								<td class="country-club">
-									RMA
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="next-match last-match">
-					<h3>Last matches</h3>
-					<div class="match-table">
-						<table>
-							<tr class="match-b-color">
-								<td class="date">
-									01/04/2014
-								</td>
-								<td class="time">
-									20:10
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									VIL
-								</td>
-							</tr>
-							<tr class="match-b-color">
-								<td class="date">
-									02/04/2014
-								</td>
-								<td class="time">
-									21:45
-								</td>
-								<td class="country-club">
-									RMA
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-							</tr>
-							<tr class="match-b-color">
-								<td class="date">
-									31/04/2014
-								</td>
-								<td class="time">
-									18:10
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									VIL
-								</td>
-							</tr>
-							<tr class="match-b-color">
-								<td class="date">
-									01/04/2014
-								</td>
-								<td class="time">
-									19:45
-								</td>
-								<td class="country-club">
-									RMA
-								</td>
-								<td class="v-points">
-									Vs
-								</td>
-								<td class="country-club">
-									FCB
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-				<div class="player-rank club-player-rank">
-					<div class="ranking-heading">
-						<h3>Top 10 Players</h3>
-					</div>
-					<div class="ranking-grids">
-						<table>
-							<thead>
-							<tr><th class="th-rank">
-									Rank
-								</th>
-								<th class="th-country">
-									Name
-								</th>
-								<th class="th-t-points">
-									Position
-								</th>
-								<th class="th-p-points">
-									Club
-								</th>
-								<th class="th-p-points">
-									Nationality
-								</th>
-							</tr></thead>
-							<tbody>
-							<tr class="b-color">
-								<td class="rank c-rank">
-									1.
-								</td>
-								<td class="country c-rank">
-									Lionel Messi
-								</td>
-								<td class="t-points c-rank">
-									Forward
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Barcelona</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Argentina
-								</td>
-							</tr>
-							<tr class="bg-color">
-								<td class="rank c-rank">
-									2.
-								</td>
-								<td class="country c-rank">
-									Cristiano Ronaldo
-								</td>
-								<td class="t-points c-rank">
-									Forward
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Real Madrid</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Portugal
-								</td>
-							</tr>
-							<tr class="b-color">
-								<td class="rank c-rank">
-									3.
-								</td>
-								<td class="country c-rank">
-									Xavi
-								</td>
-								<td class="t-points c-rank">
-									Midfielder
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Barcelona</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Spain
-								</td>
-							</tr>
-							<tr class="bg-color">
-								<td class="rank c-rank">
-									4.
-								</td>
-								<td class="country c-rank">
-									Andres Iniesta
-								</td>
-								<td class="t-points c-rank">
-									Midfielder
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Barcelona</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Spain
-								</td>
-							</tr>
-							<tr class="b-color">
-								<td class="rank c-rank">
-									5.
-								</td>
-								<td class="country c-rank">
-									Ibrahimovic
-								</td>
-								<td class="t-points c-rank">
-									Forward
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">PSG</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Sweden
-								</td>
-							</tr>
-							<tr class="bg-color">
-								<td class="rank c-rank">
-									6.
-								</td>
-								<td class="country c-rank">
-									Radamel Falcao
-								</td>
-								<td class="t-points c-rank">
-									Forward
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Atletico Madrid</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Colombia
-								</td>
-							</tr>
-							<tr class="b-color">
-								<td class="rank c-rank">
-									7.
-								</td>
-								<td class="country c-rank">
-									Robin van Persie
-								</td>
-								<td class="t-points c-rank">
-									Forward
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Man Utd</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Netherlands
-								</td>
-							</tr>
-							<tr class="bg-color">
-								<td class="rank c-rank">
-									8.
-								</td>
-								<td class="country c-rank">
-									Andrea Pirlo
-								</td>
-								<td class="t-points c-rank">
-									Midfielder
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Juventus</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Italy
-								</td>
-							</tr>
-							<tr class="b-color">
-								<td class="rank c-rank">
-									9.
-								</td>
-								<td class="country c-rank">
-									Yaya Toure
-								</td>
-								<td class="t-points c-rank">
-									Midfielder
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Man City</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Ivory Coast
-								</td>
-							</tr>
-							<tr class="bg-color">
-								<td class="rank c-rank">
-									10.
-								</td>
-								<td class="country c-rank">
-									Edinson Cavani
-								</td>
-								<td class="t-points c-rank">
-									Forward
-								</td>
-								<td class="t-points p-points c-rank">
-									<a href="club.html">Napoli</a>
-								</td>
-								<td class="t-points p-points c-rank">
-									Uruguay
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+    <div id="page-wrapper">
+        <div class="club">
+            <div class="club-heading">
+                <h2 class="text-center"><img src="{{$team_temas->link}}" style="height: 55px"/> {{ $team_temas->team }}
+                </h2>
+            </div>
+            <div class="club-grids">
+                <div class="col-md-8 club-left">
+                    <div class="slider-grids" >
+                        <div class="col-md-8 slider-left" style="padding: 0!important;">
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 549px!important;height: 316px!important;">
+                                <div class="carousel-inner">
+                                    <?php $i = 0; ?>
+                                    @if(isset($team_temas))
+                                        @foreach($team_temas->Team_set as $rel)
+                                            @if ($i == 0)
+                                                    <div class="item active">
+                                                        <img src="{{ asset('/image/'.$rel->image)}}" style="width: 549px!important;height: 316px!important;">
+                                                    </div>
+                                                @else
+                                                    <div class="item">
+                                                        <img src="{{ asset('/image/'.$rel->image)}}"
+                                                             style="width: 549px!important;height: 316px!important;">
+                                                    </div>
+                                                @endif
+                                                <?php $i++; ?>
+                                            @endforeach
+                                        @endif
+                                </div>
 
-			<div class="clearfix"> </div>
-	</div>
-	<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-	@endsection
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 slider-right" style="padding: 0!important;">
+                            <div class="slider-right-img">
+                                @for($i = 0; $i < count($team_temas->Team_news);$i++)
+                                    <img src=" {{ asset('image/'.$team_temas->Team_news[$i]->image)}}"
+                                         style="height: 220px"/>
+                                    <div class="slider-right-info">
+                                        <a href="#">{{ $team_temas->Team_news[$i]->title }}</a>
+                                        <p>{{ $team_temas->Team_news[$i]->description }} </p>
+                                    </div>
+                                    @break($i = 1)
+                                @endfor
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="three-grids">
+                        @for($i = 1; $i < count($team_temas->Team_news);$i++)
+                            <div class="three-grid">
+                                <div class="three-grid-info">
+                                    <div class="three-grid-img">
+                                        <a href="#"><img src="{{ asset('image/'.$team_temas->Team_news[$i]->image)}}"
+                                                         alt="" style="height: 177px"/></a>
+                                    </div>
+                                    <div class="three-grid-text">
+                                        <div class="three-grid-text-heading">
+                                            <a class="text" href="#">{{ $team_temas->Team_news[$i]->title }}</a>
+                                        </div>
+                                        <div class="t-grid author-grid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @break($i == 3)
+                        @endfor
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="club-players">
+                        <div class="col-md-6 club-players-left-grid">
+                            <div class="club-players-left">
+                                <div class="club-players-left-heading">
+                                    <h3>Our Players</h3>
+                                </div>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th class="p-name">
+                                            Player
+                                        </th>
+                                        <th class="p-name p-nation">
+                                            Name
+                                        </th>
+                                        <th class="p-name p-nation">
+                                            Nationality
+                                        </th>
+                                        <th class="p-name p-position">
+                                            Position
+                                        </th>
+                                    </tr>
+                                    <thead>
+                                    <tbody>
+                                    @foreach($team_temas->Team_player as $player)
+                                        <tr class="p-color">
+                                            <td class="p-user"><i class="fa fa-user"></i></td>
+                                            <td class="player-name">{{ $player->name }}</td>
+                                            <td class="player-name p-country">{{ $player->nationality }}</td>
+                                            <td class="player-name p-place">{{ $player->position }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6 club-players-right-grid">
+                            <div class="most-grid">
+                                <div class="most-grid-heading">
+                                    <h3>Popular Now</h3>
+                                </div>
+                                @foreach($team_temas->Team_important as $item)
+                                    <div class="popular-grids">
+                                        <div class="popular-grid">
+                                            <div class="col-md-3 popular-grid-img">
+                                                <img src="{{ asset('images/'.$item->image)}}" alt=""/>
+                                            </div>
+                                            <div class="col-md-9 popular-grid-right">
+                                                <a href="#">{{ $item->title }}</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 club-right">
+                    <div class="next-match">
+                        <h3>Next Matches</h3>
+                        <div class="match-table">
+                            <table>
+                                @foreach($team_temas->Team_next as $next)
+                                    <?php
+                                    $new = explode(' ', $next->date);
+                                    $date = $new[0];
+                                    $time = $new[1];
+                                    ?>
+                                    <tr class="match-b-color">
+                                        <td class="date">
+                                            {{ $date }}
+                                        </td>
+                                        <td class="time" style="padding: 0!important;">
+                                            {{ $time }}
+                                        </td>
+                                        <td class="country-club">
+                                            {{ $next->team1 }}
+                                        </td>
+                                        <td class="v-points">
+                                            Vs
+                                        </td>
+                                        <td class="country-club">
+                                            {{ $next->team2 }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                    <div class="next-match last-match">
+                        <h3>Last matches</h3>
+                        <div class="match-table">
+                            <table style="width: 100%">
+                                @foreach($team_temas->Team_results as $res)
+                                    <tr class="match-b-color">
+                                        <td class="date"></td>
+                                        <td class="time">
+                                            {{ $res->team1 }}
+                                        </td>
+                                        <td class="country-club">
+                                            {{ $res->res1 }}
+                                        </td>
+                                        <td class="country-club">
+                                            {{ $res->res2 }}
+                                        </td>
+                                        <td class="country-club">
+                                            {{ $res->team2 }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="player-rank club-player-rank">
+                        <div class="most-view-grids-heading">
+                            <h3>Most Viewed</h3>
+                        </div>
+                        <div class="sap_tabs">
+                            <div id="horizontalTab" style="display: block; margin: 0px;">
+                                <ul class="resp-tabs-list">
+                                    <li class="resp-tab-item grid1" aria-controls="tab_item-0" role="tab">
+                                        <span>Today</span></li>
+                                    <li class="resp-tab-item grid2" aria-controls="tab_item-1" role="tab"><span>This Week</span>
+                                    </li>
+                                    <li class="resp-tab-item grid3" aria-controls="tab_item-2" role="tab"><span>This Month</span>
+                                    </li>
+                                    <div class="clearfix"></div>
+                                </ul>
+                                <div class="clear"></div>
+                                <div class="resp-tabs-container">
+                                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="{{ asset('images/f7.jpg')}}" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Sed neque nibh</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="{{ asset('images/f8.jpg')}}" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="#">Nam efficitur</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="{{ asset('images/f10.jpg')}}"
+                                                                           alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Quisque lacinia</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="{{ asset('images/f13.jpg') }}"
+                                                                           alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Duis accumsan</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f15.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Nulla facilisi</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f15.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Nulla facilisi</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f7.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Sed neque nibh</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f8.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Nam efficitur</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f10.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Quisque lacinia</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f13.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Duis accumsan</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f13.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Duis accumsan</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f15.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Nulla facilisi</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f7.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Sed neque nibh</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f8.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Nam efficitur</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="news-right-grids most-view-left">
+                                            <div class="news-right-grids-img most-view-left-img">
+                                                <a href="single.html"><img src="images/f10.jpg" alt=""></a>
+                                            </div>
+                                            <div class="news-right-grids-info most-view-left-img">
+                                                <a href="single.html">Quisque lacinia</a>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+@endsection

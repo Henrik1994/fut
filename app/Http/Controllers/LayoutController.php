@@ -14,5 +14,4 @@ class LayoutController extends Controller
         return  view('layouts.admin',compact('teams'));
     }
 
-
 }

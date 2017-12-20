@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('css/style.css')}}" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
     <!-- jQuery -->
     <!-- lined-icons -->
-    <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="{{ asset('css/icon-font.min.css')}}" type='text/css' />
     <!-- //lined-icons -->
 
     <!-- webfonts -->
@@ -20,38 +20,14 @@
     <link href='//fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
     <!--// webfonts -->
     <!-- Meters graphs -->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
     <!-- Placed js at the end of the document so the pages load faster -->
 </head>
 
 <body class="sticky-header left-side-collapsed" >
 <section>
     <!-- left side start-->
-    <div class="left-side sticky-left-side" style='background-color: #006D96;'>
-        <!--logo and iconic logo end-->
-        <div class="left-side-inner">
-            <div class="scrollbar scrollbar1">
-                <!--sidebar nav start-->
-                <ul class="nav nav-pills nav-stacked custom-nav" style="margin-top: 0 !important; ">
-                    <li style="height: 58px!important;" class="active"><a href="{{ url('/') }}"><img src="{{ asset('icons/4.png') }}" style="width: 41px;height: 47px"  alt="Home" /></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Real.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Real Madrid</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Barcelona.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Barcelona</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Atletico.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Atletico Madrid</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Bayern.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Bayern München</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Chelsea.png') }}" style="width: 32px;height: 32px"/><span style="height: 46px;top: 0">Chelsea</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Manchester.png') }}" style="width: 32px;height: 32px" /><span style="height: 46px;top: 0">Manchester United</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Manchester-City.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Manchester City</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Juventus.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Juventus</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/Paris-Saint-Germain.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Paris Saint-Germain</span></a></li>
-                    <li><a href="#"><img src="{{ asset('icons/FC-Porto.png') }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">Porto</span></a></li>
-                </ul>
-                <!--sidebar nav end-->
-                <div class="text-center">
-                <a href="#"><img src="{{ asset('images/17.png') }}"  /></a>
-                </div>
-            </div>
-        </div>
-    </div>
+                @yield('left_teams')
     <!-- left side end-->
     <!-- main content start-->
     <div class="main-content">

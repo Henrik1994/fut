@@ -17,7 +17,7 @@ class Team extends Model
     }
     public function Team_news()
     {
-        return $this->hasMany('App\Models\Team\TeamNews');
+        return $this->hasMany('App\Models\Team\TeamNews')->orderBy('id','desc');
     }
     public function Team_next()
     {
@@ -33,6 +33,6 @@ class Team extends Model
     }
     public function Team_important()
     {
-        return $this->hasMany('App\Models\Team\TeamImportant');
+        return $this->hasMany('App\Models\Team\TeamImportant')->OrderBy('id','desc')->take(6);
     }
 }

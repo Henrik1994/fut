@@ -8,6 +8,7 @@ use App\Models\UEFA\News;
 use App\Models\UEFA\Results;
 use App\Models\UEFA\Video;
 use App\Models\UEFA\GroupSelect;
+use App\Models\Team\Team;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -20,7 +21,8 @@ class IndexController extends Controller
         $results = Results::OrderBy('id','desc')->take(15)->get();
         $matches = Matches::OrderBy('id','desc')->get();
         $groups = GroupSelect::with('Groups')->get();
+        $temas = Team::all()->take(10);
 
-        return view('index',compact('news','videos','importants','results','matches','groups'));
+        return view('index',compact('news','videos','importants','results','matches','groups','temas'));
     }
 }

@@ -21,11 +21,6 @@
                 <hr>
                 <div class="col-sm-8">
                     <div id="myCarousel" class="carousel slide slider-chap" data-ride="carousel">
-                        {{--<ol class="carousel-indicators">--}}
-                        {{--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>--}}
-                        {{--<li data-target="#myCarousel" data-slide-to="1"></li>--}}
-                        {{--<li data-target="#myCarousel" data-slide-to="2"></li>--}}
-                        {{--</ol>--}}
                         <div class="carousel-inner">
                             <?php $i = 0; ?>
                             @if(isset($rels))
@@ -33,12 +28,13 @@
                                 @if ($i == 0)
                                     <div class="item active">
                                             <img src="{{ asset('/image/'.$rel->image)}}" class="img1">
+                                    </div>
                                         @else
                                             <div class="item">
                                                 <img src="{{ asset('/image/'.$rel->image)}}"
                                                      class="img1">
-                                                @endif
                                             </div>
+                                                @endif
                                         <?php $i++; ?>
                                             @endforeach
                                             @endif

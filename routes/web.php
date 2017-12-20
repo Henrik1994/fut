@@ -92,8 +92,10 @@ Route::post('/team_important_set','Teams\TeamImportantController@team_important_
 Route::post('/team_important_edit','Teams\TeamImportantController@team_important_edit');
 Route::get('/team_important_del/{id}','Teams\TeamImportantController@team_important_del');
 
-Route::get('/','IndexController@index');
 
+
+Route::get('/','IndexController@index');
+Route::get('/club/{id}','TeamIndexController@index');
 
 
 Route::get('/about', function () {
@@ -102,9 +104,7 @@ Route::get('/about', function () {
 Route::get('/single', function () {
     return view('single');
 });
-Route::get('/club', function () {
-    return view('club');
-});
+
 Route::get('/contact', function () {
     return view('contact');
 });
