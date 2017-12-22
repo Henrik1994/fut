@@ -40,11 +40,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 top-grid-left-info">
-                                    <a class="text" href="">{{ (strlen($video['title']) < 50)?$video['title']:substr($video['title'],0,50)."..."  }}</a>
+                                    <a class="text" href="{{ url('/video_single',$video->id) }}">{{ (strlen($video['title']) < 50)?$video['title']:substr($video['title'],0,50)."..."  }}</a>
                                     <p>{{ (strlen($video['description']) < 85)?$video['description'] :substr($video['description'],0,90)."..."  }}</p>
                                     <div class="t-grid">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-clock-o"></i>{{ $video['created_at'] }}</a></li>
+                                            <li><a href="{{ url('/video_single',$video->id) }}"><i class="fa fa-clock-o"></i>{{ $video['created_at'] }}</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -59,10 +59,10 @@
                                         @for($i = 0; $i < count($news); $i++)
                                             <div class="col-md-6 two-grids-bottom-grid">
                                                 <div class="two-grids-bottom-grid-img">
-                                                    <a href="single.blade.php"><img
+                                                    <a href="{{ url('/news_single',$news[$i]->id) }}"><img
                                                                 src="{{ asset('image/'.$news[$i]->image) }}"
                                                                 style="width: 262px;height: 148px" /></a>
-                                                    <a href="single.blade.php">{{ (strlen($news[$i]->title) < 50)?$news[$i]->title:substr($news[$i]->title,0,50)."..."  }}</a>
+                                                    <a href="{{ url('/news_single',$news[$i]->id) }}">{{ (strlen($news[$i]->title) < 50)?$news[$i]->title:substr($news[$i]->title,0,50)."..."  }}</a>
                                                     <p>{{ (strlen($news[$i]->description) < 80)?$news[$i]->description :substr($news[$i]->description,0,85)."..."  }}</p>
                                                 </div>
                                             </div>
@@ -80,13 +80,13 @@
                                         <div class="three-grid">
                                             <div class="three-grid-info">
                                                 <div class="three-grid-img">
-                                                    <a href="#"><img src="{{ asset('image/'.$news[$i]->image) }}"
+                                                    <a href="{{ url('/news_single',$news[$i]->id) }}"><img src="{{ asset('image/'.$news[$i]->image) }}"
                                                                      style="width: 195px;height: 109px"/></a>
                                                 </div>
                                                 <div class="three-grid-text">
                                                     <div class="three-grid-text-heading">
                                                         <a class="text"
-                                                           href="single.blade.php">{{ (strlen($news[$i]->title) < 40)?$news[$i]->title:substr($news[$i]->title,0,40)."..."  }}</a>
+                                                           href="{{ url('/news_single',$news[$i]->id) }}">{{ (strlen($news[$i]->title) < 40)?$news[$i]->title:substr($news[$i]->title,0,40)."..."  }}</a>
                                                     </div>
                                                     <div class="t-grid author-grid">
                                                         <ul>
@@ -120,12 +120,12 @@
                                                 </div>
                                                 <div class="news-right-grids">
                                                     <div class="news-right-grids-img">
-                                                        <a href="single.blade.php"><img
+                                                        <a href="{{ url('/news_single',$news[$i]->id) }}"><img
                                                                     src="{{ asset('image/'.$news[$i]->image) }}"
                                                                     style="width: 115px;height: 77px"/></a>
                                                     </div>
                                                     <div class="news-right-grids-info">
-                                                        <a href="#">{{ (strlen($news[$i]->title) < 15)?$news[$i]->title:substr($news[$i]->title,0,15)."..."  }}</a>
+                                                        <a href="{{ url('/news_single',$news[$i]->id) }}">{{ (strlen($news[$i]->title) < 15)?$news[$i]->title:substr($news[$i]->title,0,15)."..."  }}</a>
                                                         <p>{{ (strlen($news[$i]->description) < 40)?$news[$i]->description:substr($news[$i]->description,0,40)."..."  }}</p>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -144,10 +144,10 @@
                                                 </div>
                                                 <div class="news-right-grids">
                                                     <div class="news-right-grids-img">
-                                                        <a href="single.blade.php"><img src="{{ asset('image/'.$news[$i]->image) }}" style="width: 115px;height: 77px"/></a>
+                                                        <a href="{{ url('/news_single',$news[$i]->id) }}"><img src="{{ asset('image/'.$news[$i]->image) }}" style="width: 115px;height: 77px"/></a>
                                                     </div>
                                                     <div class="news-right-grids-info">
-                                                        <a href="#">{{ (strlen($news[$i]->title) < 15)?$news[$i]->title:substr($news[$i]->title,0,15)."..."  }}</a>
+                                                        <a href="{{ url('/news_single',$news[$i]->id) }}">{{ (strlen($news[$i]->title) < 15)?$news[$i]->title:substr($news[$i]->title,0,15)."..."  }}</a>
                                                         <p>{{ (strlen($news[$i]->description) < 40)?$news[$i]->description:substr($news[$i]->description,0,40)."..."  }}</p>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -167,10 +167,10 @@
                                 @foreach($importants as $important)
                             <div class="top-grid-left-right-grid">
                                 <div class="top-grid-left-right-img">
-                                    <a href="#"><img src="{{ asset('image/'.$important->image) }}" style="width: 315px;height: 210px"/></a>
+                                    <a href="{{ url('important_single',$important->id) }}"><img src="{{ asset('image/'.$important->image) }}" style="width: 315px;height: 210px"/></a>
                                 </div>
                                 <div class="top-grid-left-right-info">
-                                    <a class="text" href="">{{ (strlen($important->title) < 33)?$important->title:substr($important->title,0,33)."..."  }}</a>
+                                    <a class="text" href="{{ url('important_single',$important->id) }}">{{ (strlen($important->title) < 33)?$important->title:substr($important->title,0,33)."..."  }}</a>
                                     <p>{{ (strlen($important->description) < 130)?$important->description:substr($important->description,0,130)."..."  }}</p>
                                     <div class="t-grid right-info-t-grid">
                                         <ul>

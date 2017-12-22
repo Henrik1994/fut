@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\UEFA;
 
+use App\Models\Team\Team;
 use App\Models\UEFA\GroupSelect;
 use App\Models\UEFA\Grups;
 use Illuminate\Http\Request;
@@ -12,9 +13,10 @@ class GroupsController extends Controller
 {
   public function index()
   {
+      $teams = Team::all();
       $groups = GroupSelect::with('Groups')->get();
 
-      return view('admin.UEFA.grups', compact('groups'));
+      return view('admin.UEFA.grups', compact('groups','teams'));
   }
 
   public function groups_select(Request $request){

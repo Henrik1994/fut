@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UEFA;
 
 use App\Models\UEFA\Important;
+use App\Models\Team\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -11,8 +12,9 @@ class ImportantController extends Controller
 {
     public function index()
     {
+        $teams = Team::all();
         $importants = Important::OrderBy('id','desc')->get();
-        return view('admin.UEFA.important',compact('importants'));
+        return view('admin.UEFA.important',compact('importants','teams'));
     }
     public function important_set(Request $request)
     {

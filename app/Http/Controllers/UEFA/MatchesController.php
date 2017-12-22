@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UEFA;
 
 use App\Models\UEFA\Matches;
+use App\Models\Team\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -11,8 +12,9 @@ class MatchesController extends Controller
 {
     public function index()
     {
+        $teams = Team::all();
         $matches = Matches::OrderBy('id','desc')->get();
-        return view('admin.UEFA.matches',compact('matches'));
+        return view('admin.UEFA.matches',compact('matches','teams'));
     }
     public function matches_set(Request $request)
     {

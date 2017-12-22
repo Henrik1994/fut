@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\UEFA;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team\Team;
 use App\Models\UEFA\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class NewsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $teams = Team::all();
         $news = News::OrderBy('id','desc')->get();
-        return view('admin.UEFA.news',compact('news'));
+        return view('admin.UEFA.news',compact('news','teams'));
     }
 
     public function news_set( Request $request)

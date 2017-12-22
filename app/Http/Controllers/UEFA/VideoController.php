@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\UEFA;
 
+use App\Models\Team\Team;
 use App\Models\UEFA\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,8 +12,9 @@ class VideoController extends Controller
 {
     public function index()
     {
+        $teams = Team::all();
         $videos = Video::OrderBy('id','desc')->get();
-        return view('admin.UEFA.video',compact('videos'));
+        return view('admin.UEFA.video',compact('videos','teams'));
     }
     public function video_set( Request $request)
     {

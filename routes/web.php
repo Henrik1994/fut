@@ -96,13 +96,15 @@ Route::get('/team_important_del/{id}','Teams\TeamImportantController@team_import
 
 Route::get('/','IndexController@index');
 Route::get('/club/{id}','TeamIndexController@index');
+Route::get('/video_single/{id}','SingleController@video');
+Route::get('/news_single/{id}','SingleController@news');
+Route::get('/important_single/{id}','SingleController@important');
+Route::get('/team_news_single/{id}','SingleController@team_news');
+Route::get('/team_important_single/{id}','SingleController@team_important');
 
 
 Route::get('/about', function () {
     return view('about');
-});
-Route::get('/single', function () {
-    return view('single');
 });
 
 Route::get('/contact', function () {

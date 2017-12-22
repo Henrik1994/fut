@@ -71,30 +71,33 @@
                         </div>
                         <div class="col-sm-4 slider-right" style="padding: 0!important;">
                             <div class="slider-right-img">
+                                @if(isset($team_temas))
                                 @for($i = 0; $i < count($team_temas->Team_news);$i++)
                                     <img src=" {{ asset('image/'.$team_temas->Team_news[$i]->image)}}"
                                          style="height: 220px"/>
                                     <div class="slider-right-info">
-                                        <a href="#">{{ $team_temas->Team_news[$i]->title }}</a>
+                                        <a href="{{ url('team_news_single',$team_temas->Team_news[$i]->id) }}">{{ $team_temas->Team_news[$i]->title }}</a>
                                         <p>{{ $team_temas->Team_news[$i]->description }} </p>
                                     </div>
                                     @break($i = 1)
                                 @endfor
+                                    @endif
                             </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="three-grids">
+                        @if(isset($team_temas))
                         @for($i = 1; $i < count($team_temas->Team_news);$i++)
                             <div class="three-grid">
                                 <div class="three-grid-info">
                                     <div class="three-grid-img">
-                                        <a href="#"><img src="{{ asset('image/'.$team_temas->Team_news[$i]->image)}}"
+                                        <a href="{{ url('team_news_single',$team_temas->Team_news[$i]->id) }}"><img src="{{ asset('image/'.$team_temas->Team_news[$i]->image)}}"
                                                          alt="" style="height: 177px"/></a>
                                     </div>
                                     <div class="three-grid-text">
                                         <div class="three-grid-text-heading">
-                                            <a class="text" href="#">{{ $team_temas->Team_news[$i]->title }}</a>
+                                            <a class="text" href="{{ url('team_news_single',$team_temas->Team_news[$i]->id) }}">{{ $team_temas->Team_news[$i]->title }}</a>
                                         </div>
                                         <div class="t-grid author-grid">
                                         </div>
@@ -103,6 +106,7 @@
                             </div>
                             @break($i == 3)
                         @endfor
+                        @endif
                         <div class="clearfix"></div>
                     </div>
                     <div class="club-players">
@@ -129,6 +133,7 @@
                                     </tr>
                                     <thead>
                                     <tbody>
+                                    @if(isset($team_temas))
                                     @foreach($team_temas->Team_player as $player)
                                         <tr class="p-color">
                                             <td class="p-user"><i class="fa fa-user"></i></td>
@@ -137,6 +142,7 @@
                                             <td class="player-name p-place">{{ $player->position }}</td>
                                         </tr>
                                     @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -146,6 +152,7 @@
                                 <div class="most-grid-heading">
                                     <h3>Popular Now</h3>
                                 </div>
+                                @if(isset($team_temas))
                                 @foreach($team_temas->Team_important as $item)
                                     <div class="popular-grids">
                                         <div class="popular-grid">
@@ -153,12 +160,13 @@
                                                 <img src="{{ asset('images/'.$item->image)}}" alt=""/>
                                             </div>
                                             <div class="col-md-9 popular-grid-right">
-                                                <a href="#">{{ $item->title }}</a>
+                                                <a href="{{ url('team_important_single',$item->id) }}">{{ $item->title }}</a>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
                                 @endforeach
+                                    @endif
 
                             </div>
                         </div>
