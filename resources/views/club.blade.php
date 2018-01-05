@@ -21,7 +21,7 @@
                 </ul>
                 <!--sidebar nav end-->
                 <div class="text-center">
-                    <a href="#"><img src="{{ asset('images/17.png') }}"/></a>
+                    <a href="{{ url('/teams/more') }}"><img src="{{ asset('images/17.png') }}"/></a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
     <div id="page-wrapper">
         <div class="club">
             <div class="club-heading">
-                <h2 class="text-center"><img src="{{$team_temas->link}}" style="height: 55px"/> {{ $team_temas->team }}
+                <h2 class="text-center"><img src="{{ ($team_temas->image  == "")? $team_temas->link:asset('image/'.$team_temas->image )}}" style="height: 55px"/> {{ $team_temas->team }}
                 </h2>
             </div>
             <div class="club-grids">

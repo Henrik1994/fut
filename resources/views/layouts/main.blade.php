@@ -76,26 +76,30 @@
                                 <h3>Login</h3>
                             </div>
                             <div class="login-info">
-                                <form>
-                                    <input type="text" class="user" name="email" placeholder="Email" required="">
-                                    <input type="password" name="password" class="lock" placeholder="Password">
-                                    <div class="forgot-top-grids">
-                                        <div class="forgot-grid">
-                                            <ul>
-                                                <li>
-                                                    <input type="checkbox" id="brand1" value="">
-                                                    <label for="brand1"><span></span>Remember me</label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="forgot">
-                                            <a href="#">Forgot password?</a>
-                                        </div>
-                                        <div class="clearfix"> </div>
+                                <form method="POST" action="{{ url('/login') }}">
+                                    {{ csrf_field() }}
+
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                    <input type="text" id="email"  class="user" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                        @endif
                                     </div>
+
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <input type="password" name="password" id="password" class="lock" placeholder="Password" required />
+                                        @if ($errors->has('password'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+
                                     <input type="submit" name="Sign In" value="Login">
                                     <div class="signup-text">
-                                        <a href="signup.blade.php">Don't have an account? Create one now</a>
+                                        <a href="{{ url('/register') }}">Don't have an account? Create one now</a>
                                     </div>
                                     <hr>
                                     <h2>or login with</h2>

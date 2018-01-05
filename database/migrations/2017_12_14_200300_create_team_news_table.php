@@ -20,6 +20,7 @@ class CreateTeamNewsTable extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('video')->nullable();
+            $table->integer('view')->default('0');
             $table->timestamps();
         });
     }

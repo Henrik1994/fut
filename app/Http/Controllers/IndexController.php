@@ -10,6 +10,7 @@ use App\Models\UEFA\Video;
 use App\Models\UEFA\GroupSelect;
 use App\Models\Team\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -24,5 +25,12 @@ class IndexController extends Controller
         $temas = Team::all()->take(10);
 
         return view('index',compact('news','videos','importants','results','matches','groups','temas'));
+    }
+    public function logout()
+    {
+
+        Auth::logout();
+
+        return redirect('/');
     }
 }

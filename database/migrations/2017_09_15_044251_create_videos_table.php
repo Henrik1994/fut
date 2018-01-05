@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('video');
+            $table->integer('view')->default('0');
             $table->timestamps();
         });
     }

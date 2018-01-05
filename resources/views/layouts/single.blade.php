@@ -36,28 +36,23 @@
                 <!-- top-grid-right -->
                 <div class="col-md-3 top-grid-right basket-top-grid-right s-top-grid-right">
                     <div class="top-news features">
-                        <h3 style="color: #F44336">Most Viewed</h3>
+                        <h3 style="color: #F44336">News</h3>
                         <div class="top-news-grids">
-                            <div class="two-grids-bottom-grid-img">
-                                <a href=""><img src="{{ asset('images/g9.jpg') }}" alt=""></a>
-                                <a href="">Cras euismod tortor sit amet sem dapibus lacinia vel ut felis</a>
-                                <p>barev axpers</p>
-                            </div>
-                            <div class="two-grids-bottom-grid-img">
-                                <a href=""><img src="{{ asset('images/g9.jpg') }}" alt=""></a>
-                                <a href="">Cras euismod tortor sit amet sem dapibus lacinia vel ut felis</a>
-                                <p>barev axpers</p>
-                            </div>
-                            <div class="two-grids-bottom-grid-img">
-                                <a href=""><img src=" {{ asset('images/g9.jpg')}}" alt=""></a>
-                                <a href="">Cras euismod tortor sit amet sem dapibus lacinia vel ut felis</a>
-                                <p>barev axpers</p>
-                            </div>
-                            <div class="two-grids-bottom-grid-img">
-                                <a href=""><img src="{{ asset('images/g9.jpg') }}" alt=""></a>
-                                <a href="">Cras euismod tortor sit amet sem dapibus lacinia vel ut felis</a>
-                                <p>barev axpers</p>
-                            </div>
+                            @if(isset($news_all))
+                                @foreach($news_all as $news)
+                                    <div class="two-grids-bottom-grid-img">
+                                        <a href="{{ url('news_single',$news->id) }}"><img src="{{ asset('image/'.$news->image) }}" style="width:273px;height:182px"></a>
+                                        <a href="{{ url('news_single',$news->id) }}">{{ $news->title }}</a>
+                                        <p>{{ $news->description }}</p>
+                                    </div>
+                                @endforeach
+                            @endif
+                            {{--<div class="two-grids-bottom-grid-img">--}}
+                                {{--<a href=""><img src="{{ asset('images/g9.jpg') }}" alt=""></a>--}}
+                                {{--<a href="">Cras euismod tortor sit amet sem dapibus lacinia vel ut felis</a>--}}
+                                {{--<p>barev axpers</p>--}}
+                            {{--</div>--}}
+
                         </div>
                     </div>
 
@@ -75,62 +70,28 @@
                             <!-- three-grids -->
                             <div class="three-grids">
                                 <div class="three-grid">
+                                    @if(isset($important_all))
+                                        @foreach($important_all as $item)
                                     <div class="three-grid-info">
                                         <div class="three-grid-img">
-                                            <a href="single.blade.php"><img src="{{ asset('images/f1.jpg') }}" alt=""/></a>
+                                            <a href="{{ url('/important_single',$item->id) }}"><img src="{{ asset('image/'.$item->image) }}" alt=""/></a>
                                         </div>
                                         <div class="three-grid-text">
                                             <div class="three-grid-text-heading">
-                                                <a class="text" href="single.blade.php">Fusce ornare congue ligula vel
-                                                    placerat</a>
+                                                <a class="text" href="{{ url('/important_single',$item->id) }}">{{ $item->title }}</a>
                                             </div>
                                             <div class="t-grid author-grid">
                                                 <ul>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 1h</a></li>
-                                                    <li><a href="#"><i class="fa fa-user"></i> Vestibulum</a></li>
+                                                    <li><a href="#"><i class="fa fa-clock-o"></i> {{ date('d-m-y',strtotime($item->created_at)) }}</a></li>
+                                                    {{--<li><a href="#"><i class="fa fa-user"></i> Vestibulum</a></li>--}}
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
+                                        @endforeach
+                                        @endif
                                 </div>
-                                <div class="three-grid">
-                                    <div class="three-grid-info">
-                                        <div class="three-grid-img">
-                                            <a href="single.blade.php"><img src="{{ asset('images/f2.jpg') }}" alt=""/></a>
-                                        </div>
-                                        <div class="three-grid-text">
-                                            <div class="three-grid-text-heading">
-                                                <a class="text" href="single.blade.php">Fusce ornare congue ligula vel
-                                                    placerat</a>
-                                            </div>
-                                            <div class="t-grid author-grid">
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 2h</a></li>
-                                                    <li><a href="#"><i class="fa fa-user"></i> Cras pretium </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="three-grid">
-                                    <div class="three-grid-info">
-                                        <div class="three-grid-img">
-                                            <a href="single.blade.php"><img src="{{ asset('images/f3.jpg') }}" alt=""/></a>
-                                        </div>
-                                        <div class="three-grid-text">
-                                            <div class="three-grid-text-heading">
-                                                <a class="text" href="single.blade.php">Fusce ornare congue ligula vel
-                                                    placerat</a>
-                                            </div>
-                                            <div class="t-grid author-grid">
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 4h</a></li>
-                                                    <li><a href="#"><i class="fa fa-user"></i> Phasellus</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="clearfix"></div>
                             </div>
                             <!-- //three-grids -->

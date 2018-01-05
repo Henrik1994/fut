@@ -8,6 +8,6 @@ class Important extends Model
 {
     protected $table = 'importants';
     protected $fillable = [
-        'title','description','image','video','created_at'
+        'title','description','image','video','view','created_at'
     ];
 }

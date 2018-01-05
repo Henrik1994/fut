@@ -16,7 +16,7 @@
                 </ul>
                 <!--sidebar nav end-->
                 <div class="text-center">
-                    <a href="#"><img src="{{ asset('images/17.png') }}"  /></a>
+                    <a href="{{ url('/teams/more') }}"><img src="{{ asset('images/17.png') }}"  /></a>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                                     <p>{{ (strlen($video['description']) < 85)?$video['description'] :substr($video['description'],0,90)."..."  }}</p>
                                     <div class="t-grid">
                                         <ul>
-                                            <li><a href="{{ url('/video_single',$video->id) }}"><i class="fa fa-clock-o"></i>{{ $video['created_at'] }}</a></li>
+                                            <li><a href="{{ url('/video_single',$video->id) }}"><i class="fa fa-clock-o"></i> {{ date("Y-m-d",strtotime($video['created_at']))}}</a></li>
                                         </ul>
                                     </div>
                                 </div>
