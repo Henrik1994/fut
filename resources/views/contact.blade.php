@@ -2,6 +2,33 @@
 @section('title')
 	Contact
 	@endsection
+@section('left_teams')
+	<div class="left-side sticky-left-side" style='background-color: #006D96;'>
+		<!--logo and iconic logo end-->
+		<div class="left-side-inner">
+			<div class="scrollbar scrollbar1">
+				<!--sidebar nav start-->
+				<ul class="nav nav-pills nav-stacked custom-nav" style="margin-top: 0 !important; ">
+					<li style="height: 58px!important;" class="active"><a href="{{ url('/') }}"><img
+									src="{{ asset('icons/4.png') }}" style="width: 41px;height: 47px" alt="Home"/></a>
+					</li>
+					@if(isset($teams))
+						@foreach($teams as $team)
+							<li><a href="{{ url('/club', $team->id) }}"><img
+											src="{{ ($team->link != '')?$team->link:asset('image/'.$team->image) }}"
+											style="width: 32px;height: 32px"/><span
+											style="height: 46px;top: 0">{{ $team->team }}</span></a></li>
+						@endforeach
+					@endif
+				</ul>
+				<!--sidebar nav end-->
+				<div class="text-center">
+					<a href="#"><img src="{{ asset('image/17.png') }}"/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection
 @section('content')
 <div id="page-wrapper">
 	<!-- contact -->

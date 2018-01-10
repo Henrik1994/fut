@@ -75,7 +75,9 @@ class TopController extends Controller
 
     public function delete_top($id){
 
+        $derectory = public_path('image/');
         $delete = Top::find($id);
+        unlink($derectory.$delete->image);
         $delete->delete();
 
         return redirect()->back();

@@ -39,9 +39,9 @@
             <div class="language-grid" style="margin-left: 52%;position: absolute;">
                 <select class="form-control bfh-countries" data-country="US">
                     <option value="">Select Language</option>
-                    <option>Spanish</option>
-                    <option>French</option>
-                    <option>German</option>
+                    <option>Armenian</option>
+                    <option>Russian</option>
+                    <option>English</option>
                 </select>
             </div>
 
@@ -59,7 +59,30 @@
             </div>
 
             <div class="dropdown-grids" style="float: right; margin-right: 8%;">
+                @if (Auth::guest())
                 <div id="loginContainer"><a href="#"  data-toggle="modal" data-target="#myModal"><span>Login</span></a></div>
+                    @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle btn btn-primary btn-md" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" ></span>  {{ Auth::user()->name }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ url('/logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -117,6 +140,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- //	Modal -->
         <!--footer section start-->

@@ -68,9 +68,11 @@ class TeamImportantController extends Controller
     }
 
 
-    public function team_important_del($id){
-
+    public function team_important_del($id)
+    {
+        $derectory = public_path('image/');
         $delete = TeamImportant::find($id);
+        unlink($derectory.$delete->image);
         $delete->delete();
 
         return redirect()->back();

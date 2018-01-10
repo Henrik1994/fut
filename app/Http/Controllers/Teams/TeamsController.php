@@ -71,7 +71,9 @@ class TeamsController extends Controller
 
     public function delete_team($id)
     {
+        $derectory = public_path('image/');
         $team = Team::find($id);
+        unlink($derectory.$team->image);
         $team->delete();
 
         return redirect()->back();

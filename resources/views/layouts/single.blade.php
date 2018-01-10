@@ -23,7 +23,7 @@
                 </ul>
                 <!--sidebar nav end-->
                 <div class="text-center">
-                    <a href="#"><img src="{{ asset('images/17.png') }}"/></a>
+                    <a href="#"><img src="{{ asset('image/17.png') }}"/></a>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@
                                                 <div class="news-right-grids most-view-left">
                                                     <div class="news-right-grids-img most-view-left-img">
                                                         <a href="single.blade.php"><img
-                                                                    src="{{ asset('images/f7.jpg') }}" alt=""></a>
+                                                                    src="{{ asset('image/f7.jpg') }}" alt=""></a>
                                                     </div>
                                                     <div class="news-right-grids-info most-view-left-img">
                                                         <a href="single.blade.php">Sed neque nibh</a>

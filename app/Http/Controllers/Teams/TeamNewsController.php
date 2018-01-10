@@ -72,9 +72,11 @@ class TeamNewsController extends Controller
     }
 
 
-    public function team_news_del($id){
-
+    public function team_news_del($id)
+    {
+        $derectory = public_path('image/');
         $delete = TeamNews::find($id);
+        unlink($derectory.$delete->image);
         $delete->delete();
 
         return redirect()->back();

@@ -68,8 +68,9 @@ class ImportantController extends Controller
 
 
     public function delete_importrant($id){
-
+        $derectory = public_path('image/');
         $delete = Important::find($id);
+        unlink($derectory.$delete->image);
         $delete->delete();
 
         return redirect()->back();

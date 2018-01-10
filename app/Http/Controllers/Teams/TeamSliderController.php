@@ -49,9 +49,10 @@ class TeamSliderController extends Controller
 
     public function slider_del($id)
     {
-
-            $del = Team_Slider::find($id);
-            $del->delete();
+        $derectory = public_path('image/');
+        $del = Team_Slider::find($id);
+        unlink($derectory.$del->image);
+        $del->delete();
 
             return redirect()->back();
     }

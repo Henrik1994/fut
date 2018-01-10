@@ -16,14 +16,10 @@ class PermissionSuper
      */
     public function handle($request, Closure $next)
     {
-        // Check if a user is logged in.
-        // Check if a user is logged in.
-        if (Auth::user()->slug == 'admin')
-        {
+        if(Auth::check() && Auth::user()->role == 1) {
             return $next($request);
         }
-        // If we reach this far, the user does not have the required permissions.
-        return redirect('/admin');
+        return redirect('/');
 
     }
 

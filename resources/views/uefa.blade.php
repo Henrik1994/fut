@@ -10,7 +10,7 @@
 				<div class="col-md-3 top-grid-right basket-top-grid-right a-basket-top-grid-right">
 					<div class="top-grid-left-right-grid a-top-grid-left-right-grid">
 						<div class="top-grid-left-right-img">
-							<a href="single.html"><img src="images/g1.jpg" alt="" /></a>
+							<a href="single.html"><img src="image/g1.jpg" alt="" /></a>
 						</div>
 						<div class="top-grid-left-right-info">
 							<a class="text" href="single.html">Lorem ipsum dolor sit amet</a>

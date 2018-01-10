@@ -16,7 +16,7 @@
                 </ul>
                 <!--sidebar nav end-->
                 <div class="text-center">
-                    <a href="{{ url('/teams/more') }}"><img src="{{ asset('images/17.png') }}"  /></a>
+                    <a href="{{ url('/teams/more') }}"><img src="{{ asset('image/17.png') }}"  /></a>
                 </div>
             </div>
         </div>

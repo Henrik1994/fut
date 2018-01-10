@@ -74,8 +74,9 @@ class NewsController extends Controller
 
 
     public function delete_news($id){
-
+        $derectory = public_path('image/');
         $delete = News::find($id);
+        unlink($derectory.$delete->image);
         $delete->delete();
 
         return redirect()->back();

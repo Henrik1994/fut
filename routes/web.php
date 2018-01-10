@@ -10,8 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['web']
-], function () {
+Route::group([ 'middleware' => 'permissions'], function () {
 //layoute admin page
     Route::get('admin', 'LayoutController@index');
 
@@ -108,13 +107,13 @@ Route::get('/team_important_single/{id}','SingleController@team_important');
 
 
 Route::get('/about', function () {
-    return view('about');
+    $teams = App\Models\Team\Team::all();
+    return view('about',compact('teams'));
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    $teams = App\Models\Team\Team::all();
+    return view('contact',compact('teams'));
 });
-Route::get('/uefa', function () {
-    return view('uefa');
-});
+
 Auth::routes();
