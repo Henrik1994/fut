@@ -142,7 +142,7 @@
 
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Home</a>
+                                    <a href="{{ url('/') }}" class="btn btn-default btn-flat">Home</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('logout') }}" class="btn btn-default btn-flat">Log out</a>
@@ -186,7 +186,7 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-trophy"></i> <span>UEFA </span>
+                        <i class="fa fa-trophy"></i> <span>Home Interface </span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -223,8 +223,8 @@
                 @endif
                 <li class="header">LABELS</li>
                 <li><a href="{{ url('teams') }}"><i class="fa fa-circle-o text-red"></i> <span>Teams</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+                <li><a href="{{ url('/role') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                <li><a href="{{ url('/information') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->

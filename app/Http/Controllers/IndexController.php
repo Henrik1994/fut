@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IndexView;
 use App\Models\UEFA\Important;
 use App\Models\UEFA\Matches;
 use App\Models\UEFA\News;
@@ -16,6 +17,16 @@ class IndexController extends Controller
 {
     public  function index()
     {
+        if(IndexView::find(1)){
+            $news = IndexView::find(1);
+            $news->view = $news['view'] + 1;
+            $news->save();
+        }else{
+            $news = new IndexView();
+            $news->view = $news['view'] + 1;
+            $news->save();
+        }
+
         $importants =  Important::OrderBy('id','desc')->take(3)->get();
         $videos =  Video::OrderBy('id','desc')->take(1)->get();
         $news = News::OrderBy('id','desc')->get();
@@ -32,5 +43,8 @@ class IndexController extends Controller
         Auth::logout();
 
         return redirect('/');
+    }
+    public function view(){
+
     }
 }

@@ -93,6 +93,10 @@ Route::group([ 'middleware' => 'permissions'], function () {
     Route::post('/team_important_edit', 'Teams\TeamImportantController@team_important_edit');
     Route::get('/team_important_del/{id}', 'Teams\TeamImportantController@team_important_del');
 
+    Route::get('/information', 'LayoutController@information');
+    Route::get('/role', 'LayoutController@role');
+    Route::get('/role_set/{id}', 'LayoutController@role_set');
+
 });
 Route::get('logout', 'IndexController@logout');
 

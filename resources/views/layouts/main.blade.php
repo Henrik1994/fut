@@ -36,6 +36,7 @@
             <div class="top-logo">
                 <h1><a href="{{ url('/') }}">Live Info</a></h1>
             </div>
+
             <div class="language-grid" style="margin-left: 52%;position: absolute;">
                 <select class="form-control bfh-countries" data-country="US">
                     <option value="">Select Language</option>
