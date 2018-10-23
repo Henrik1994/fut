@@ -94,13 +94,12 @@ a:focus, a:active, a:hover {
 
 .left-side {
     width: 200px;
-    position: absolute;
-    top: 0;
     left: 0;
 }
 
 .sticky-left-side {
     position: fixed;
+    top: 50px!important;
     height: 100%;
     overflow-y: auto;
     z-index: 999;
@@ -157,25 +156,6 @@ div#page-wrapper {
     margin-bottom: 50px;
 }
 
-.left-side .searchform {
-    display: none;
-}
-
-.left-side .searchform::after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.left-side .searchform input {
-    padding: 10px;
-    width:83%;
-    margin: 0 0 15px 10px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    border: none;
-}
 
 .left-side .logged-user {
     padding: 0 0 15px 12px;
@@ -355,19 +335,32 @@ ul.dropdown-menu.drp-mnu li {
     margin-left: 0;
 }
 @media (max-width:767px){
-	.hidden-xs{display:none!important}
+	.hidden-xs{
+        display:none!important;
+    }
 	.visible-xs {
 		display: none !important;
 	}
 }
 @media (min-width:768px) and (max-width:991px){
-	.hidden-sm{display:none!important}
+	.hidden-sm{
+        display:none!important
+    }
 }
 @media (min-width:992px) and (max-width:1199px){
 	.hidden-md{display:none!important}
 }
 @media (min-width:1200px){
 	.hidden-lg{display:none!important}
+}
+
+@media screen and (max-width: 760px) {
+    .left-side{
+        display:none;
+    }
+    .main-content {
+        margin: 0 !important;
+    }
 }
 /*------------------------------------------
             LEFT SIDE COLLAPSE
@@ -515,6 +508,10 @@ ul.nav li a span {
         HEADER SECTION
 -----------------------------*/
 
+.navbar-inverse {
+    border-radius: 0;
+}
+
 .header-section {
     background: #272727;
     box-shadow: 1px 0 3px rgba(0,0,0,.15);
@@ -523,14 +520,8 @@ ul.nav li a span {
     -o-box-shadow: 1px 0 3px rgba(0,0,0,.15);
 }
 
-.header-section::after {
-    clear: both;
-    display: block;
-    content: '';
-}
-.move-button{
-	
-}
+
+
 .toggle-btn {
     font-size: 15px;
     padding: 10px 0 0;
@@ -582,9 +573,8 @@ ul.nav li a span {
 	display:block;
 }
 .top-logo{
-    float: left;
-    width: 9%;
-    margin: 0em 1em 0 1em;
+    margin: 5px auto;
+    width: 100%;
 }
 .top-logo h1{
 	margin:0;
@@ -841,10 +831,7 @@ input:focus {
     margin:6px 15px 0px 0;
 }
 /*-- clock-bottom --*/
-.clock-bottom {
-    float: left;
-    width: 17%;
-}
+
 @font-face {
     font-family: 'BebasNeueRegular';
     src: url('BebasNeue-webfont.eot');
@@ -908,23 +895,9 @@ input:focus {
 .main-content {
     margin-left: 200px;
     background: #ECFFFF;
-    min-height: 1000px;
+    min-height: 900px;
 }
-.main-content2{
-	min-height: 1250px !important;
-}
-.main-content5{
-	min-height: 1030px !important;
-}
-.main-content6{
-	min-height: 1700px !important;
-}
-.main-content3{
-	min-height:2580px !important;
-}
-.main-content4{
-	min-height: 2275px !important;
-}
+
 .language-grid {
     float: left;
     width: 10%;
@@ -3022,7 +2995,7 @@ blockquote > p {
 }
 @media (max-width:1366px){
 	.top-logo {
-		width: 10%;
+		width: 100%;
 	}
 	.three-grid {
 		width: 31.6%;
@@ -3073,7 +3046,7 @@ blockquote > p {
 }
 @media (max-width:1280px){
 	.top-logo {
-		width: 11%;
+		width: 100%;
 		margin: 0em 0em 0 1em;
 	}
 	.language-grid {
@@ -3156,7 +3129,7 @@ blockquote > p {
 		height: 335px !important;
 	}
 	.top-logo {
-		width: 13%;
+		width: 100%;
 	}
 	.top-search {
 		width: 31%;
@@ -3556,7 +3529,7 @@ blockquote > p {
 		font-size: .875em;
 	}
 	.top-logo {
-		width: 15%;
+		width: 100%;
 	}
 	.top-search {
 		width: 22%;
@@ -3724,7 +3697,7 @@ blockquote > p {
 		margin-left: 8em;
 	}
 	.top-logo {
-		width: 18%;
+		width: 100%;
 	}
 	.language-grid {
 		width: 22%;
@@ -3902,7 +3875,7 @@ blockquote > p {
 }
 @media (max-width:600px){
 	.top-logo {
-		width: 19%;
+		width: 100%;
 	}
 	.top-search {
 		margin-left: 6em;
@@ -3931,7 +3904,7 @@ blockquote > p {
 }
 @media (max-width:568px){
 	.top-logo {
-		width: 20%;
+		width: 100%;
 	}
 	.top-search {
 		margin-left: 5.5em;
@@ -3939,7 +3912,7 @@ blockquote > p {
 }
 @media (max-width:480px){
 	.top-logo {
-		width: 25%;
+		width: 100%;
 	}
 	.toggle-btn {
 		font-size: 15px;
@@ -4113,7 +4086,8 @@ blockquote > p {
 }
 @media (max-width:414px){
 	.top-logo {
-		width: 28%;
+
+		width: 100%;
 	}
 	.top-search {
 		margin-left: 1em;
@@ -4194,6 +4168,7 @@ blockquote > p {
 		font-size: .7em;
 	}
 	.left-side {
+        top:50px;
 		width: 170px;
 	}
 	.main-content {
@@ -4214,7 +4189,7 @@ blockquote > p {
 		font-size: .8em;
 	}
 	.top-logo {
-		width: 29%;
+		width: 100%;
 	}
 	.top-search {
 		width: 36%;
@@ -4240,7 +4215,7 @@ blockquote > p {
 }
 @media (max-width:320px){
 	.top-logo {
-		width: 28%;
+		width: 100%;
 		margin: 0em 0em 0 .5em;
 	}
 	.top-logo h1 a {

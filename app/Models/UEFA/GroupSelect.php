@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
     class GroupSelect extends Model
 {
-    protected $table = 'groupselects';
+    protected $table = 'groupSelects';
     protected $fillable = ['group'];
 
     public function Groups()
