@@ -206,7 +206,13 @@
                                             $year = $date[0];
                                             $time = $date[1];
                                             ?>
-                                    <li><span style="padding: 0 0">{{ $year }} -</span><span style="padding: 5px;">{{ $time }}</span>{{ $match->team1 }}<span class="color" style="padding: 5px;">Vs</span>{{ $match->team2 }}</li>
+                                    <li>
+
+                                        <span class="col-sm-5 col-xs-5">{{ $match->date }}  </span>
+                                            <p class="col-sm-3 col-xs-3">{{ $match->team1 }}</p>
+                                        <span class="col-sm-1 col-xs-1">Vs</span>
+                                        <p class="col-sm-3 col-xs-3">{{ $match->team2 }}</p>
+                                    </li>
                                         @endforeach
                                     @endif
                                 </ul>

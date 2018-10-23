@@ -248,15 +248,15 @@ ul.dropdown-menu.drp-mnu li {
 }
 
 .custom-nav > li.menu-list.active > a {
-    background-image: url(../images/plus.png);
+    background-image: url(../image/plus.png);
 }
 
 .custom-nav > li.nav-active.active > a {
-    background-image: url(../images/minus.png);
+    background-image: url(../image/minus.png);
 }
 
 .custom-nav > li.nav-active.active > a:hover {
-    background-image: url(../images/minus.png);
+    background-image: url(../image/minus.png);
 }
 
 .custom-nav li .fa {
@@ -1483,11 +1483,10 @@ h2.resp-accordion {
 }
 .match-info ul li{
     display: block;
-    color: #B7B7B7;
+    color: black;
     font-size: .875em;
     line-height: 1.8em;
     margin: 1em 0 0 0;
-    border-bottom: solid 1px #EAEAEA;
     padding-bottom: 1em;
 }
 .match-info ul li span{
