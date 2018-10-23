@@ -98,12 +98,12 @@ a:focus, a:active, a:hover {
 }
 
 .sticky-left-side {
-    position: fixed;
+    position: absolute;
     top: 50px!important;
     height: 100%;
     overflow-y: auto;
     z-index: 999;
-    background: #3E9CCA;
+    background: #006D96;
 }	
 .left-side-collapsed .sticky-left-side {
     overflow-y: visible;
@@ -360,6 +360,18 @@ ul.dropdown-menu.drp-mnu li {
     }
     .main-content {
         margin: 0 !important;
+        padding-top: 0!important;
+    }
+     #page-wrapper {
+         padding-top: 15px!important;
+     }
+     .home_video {
+         width: 100%;
+     }
+    .top-grid-left-info {
+        width: 100%;
+        height: auto!important;
+        float: none;
     }
 }
 /*------------------------------------------
@@ -387,10 +399,6 @@ h5.left-nav-title {
     margin-left: 10px;
     color: #fff;
     margin-bottom:8px;
-}
-
-.left-side-collapsed .custom-nav {
-    margin: 2px 0 20px 0;
 }
 
 .left-side-collapsed .custom-nav li a {
@@ -815,9 +823,7 @@ input:focus {
     padding: .5em 0;
 }
 
-.sticky-header .main-content {
-    padding-top: 50px;
-}
+
 .sticky-header .menu-right {
     margin-right: 0;
 }
@@ -898,6 +904,11 @@ input:focus {
     min-height: 900px;
 }
 
+.home_video {
+    width: 100%;
+    min-height: 300px;
+}
+
 .language-grid {
     float: left;
     width: 10%;
@@ -959,6 +970,7 @@ video {
     z-index: 1 !important;
 }
 .top-grid-left-info {
+    height: 300px;
     padding: 1em;
     background: #FFF;
 }
@@ -4098,9 +4110,7 @@ blockquote > p {
 	.clock-bottom {
 		width: 38%;
 	}
-	div#page-wrapper {
-		padding: 8em 1em 1em;
-	}
+
 	th.th-t-points {
 		width: 203px;
 	}

@@ -74,7 +74,7 @@
                         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle btn btn-primary btn-md" data-toggle="dropdown"
+                            <a href="#" class="dropdown-toggle btn " data-toggle="dropdown"
                                role="button" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}
                                 <span class="caret"></span>

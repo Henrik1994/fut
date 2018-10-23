@@ -3,12 +3,12 @@
     Home
 @endsection
 @section('left_teams')
-    <div class="left-side sticky-left-side" style='background-color: #006D96;'>
+    <div class="left-side sticky-left-side" >
         <!--logo and iconic logo end-->
         <div class="left-side-inner">
             <div class="scrollbar scrollbar1">
                 <!--sidebar nav start-->
-                <ul class="nav nav-pills nav-stacked custom-nav" style="margin-top: 0 !important; ">
+                <ul class="nav nav-pills nav-stacked custom-nav" >
                     <li style="height: 58px!important;" class="active"><a href="{{ url('/') }}"><img src="{{ asset('icons/4.png') }}" style="width: 41px;height: 47px"  alt="Home" /></a></li>
                         @foreach($temas as $team)
                         <li><a href="{{ url('/club', $team->id) }}"><img src="{{ ($team->link != '')?$team->link:asset('image/'.$team->image) }}" style="width: 32px;height: 32px"  /><span style="height: 46px;top: 0">{{ $team->team }}</span></a></li>
@@ -23,23 +23,23 @@
     </div>
     @endsection
 @section('content')
-    <div id="page-wrapper" style="padding-top: 19px!important;">
+    <div id="page-wrapper" >
         <div class="top-grids">
             <div class="top-grids-info">
                 <!-- top-grid-left -->
-                <div class="col-md-9 top-grid-left">
+                <div class="col-sm-9 top-grid-left">
                     <!-- top-big-grids -->
                     <div class="top-big-grids">
-                        <div class="col-md-8 top-grid-left-left">
+                        <div class="col-sm-8 top-grid-left-left">
                         @if(isset($videos))
                             @foreach($videos as $video)
                                     <div class="top-grid-left-left-grids">
-                                <div class="col-md-8 top-grid-left-img">
+                                <div class="col-sm-8 top-grid-left-img">
                                     <div >
-                                       <iframe src="{{ $video['video'] }}" style="width:410px;height: 277px " ></iframe>
+                                       <iframe src="{{ $video['video'] }}"  class="home_video"></iframe>
                                     </div>
                                 </div>
-                                <div class="col-md-4 top-grid-left-info">
+                                <div class="col-sm-4 top-grid-left-info">
                                     <a class="text" href="{{ url('/video_single',$video->id) }}">{{ (strlen($video['title']) < 50)?$video['title']:substr($video['title'],0,50)."..."  }}</a>
                                     <p>{{ (strlen($video['description']) < 85)?$video['description'] :substr($video['description'],0,90)."..."  }}</p>
                                     <div class="t-grid">
@@ -57,11 +57,11 @@
                                 <div class="two-grids-bottom-grids">
                                     @if(isset($news))
                                         @for($i = 0; $i < count($news); $i++)
-                                            <div class="col-md-6 two-grids-bottom-grid">
+                                            <div class="col-sm-6 two-grids-bottom-grid">
                                                 <div class="two-grids-bottom-grid-img">
                                                     <a href="{{ url('/news_single',$news[$i]->id) }}"><img
                                                                 src="{{ asset('image/'.$news[$i]->image) }}"
-                                                                style="width: 262px;height: 148px" /></a>
+                                                                /></a>
                                                     <a href="{{ url('/news_single',$news[$i]->id) }}">{{ (strlen($news[$i]->title) < 50)?$news[$i]->title:substr($news[$i]->title,0,50)."..."  }}</a>
                                                     <p>{{ (strlen($news[$i]->description) < 80)?$news[$i]->description :substr($news[$i]->description,0,85)."..."  }}</p>
                                                 </div>
@@ -81,7 +81,7 @@
                                             <div class="three-grid-info">
                                                 <div class="three-grid-img">
                                                     <a href="{{ url('/news_single',$news[$i]->id) }}"><img src="{{ asset('image/'.$news[$i]->image) }}"
-                                                                     style="width: 195px;height: 109px"/></a>
+                                                                    /></a>
                                                 </div>
                                                 <div class="three-grid-text">
                                                     <div class="three-grid-text-heading">
@@ -167,7 +167,7 @@
                                 @foreach($importants as $important)
                             <div class="top-grid-left-right-grid">
                                 <div class="top-grid-left-right-img">
-                                    <a href="{{ url('important_single',$important->id) }}"><img src="{{ asset('image/'.$important->image) }}" style="width: 315px;height: 210px"/></a>
+                                    <a href="{{ url('important_single',$important->id) }}"><img src="{{ asset('image/'.$important->image) }}" /></a>
                                 </div>
                                 <div class="top-grid-left-right-info">
                                     <a class="text" href="{{ url('important_single',$important->id) }}">{{ (strlen($important->title) < 33)?$important->title:substr($important->title,0,33)."..."  }}</a>
